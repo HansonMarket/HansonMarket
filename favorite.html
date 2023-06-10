@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML DOM 트리</title>
+    <style>
+      .menu {
+  background-color: #f2f2f2;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.menu-details ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.menu-details ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.menu-details ul li a {
+  color: #333;
+  text-decoration: none;
+}
+.search-bar{
+    margin: 50px;
+    text-align: center;
+}
+.market-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    background-color: darkgrey;
+}
+#marketName{
+    text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <h3>즐겨찾기</h3>
+    <hr />
+    <div class="search-bar">
+        <input>
+        <button>검색</button>
+    </div>
+    <div class="market-box">
+        <div  id="marketName">가게이름</div>
+        <div  id="marketLocation">위치</div>
+        <div  id="market-box marketImage"><img src="media/apple.png" width="100px"></div>
+    </div>
+      <div class="menu">
+        <div class="menu-details">
+     <ul>
+            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
+            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
+            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
+            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
+            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+    </script>
+  </body>
+</html>
