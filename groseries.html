@@ -118,12 +118,22 @@
       <button id="mono-content-button" class="mono-content mono-contet-button">수정하기</button>
       <div class="menu">
         <div class="menu-details">
-     <ul>
-            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
-            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
-            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
-            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
-            <li><a href="#"><img src="media/apple.png" width="30px"></a></li>
+          <ul>
+            <li>
+              <a href="#"><img src="media/Wallet.png" width="40px" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="media/food.png" width="40px" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="media/Map.png" width="40px" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="media/community.png" width="40px" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="media/user.png" width="40px" /></a>
+            </li>
           </ul>
         </div>
       </div>
@@ -216,25 +226,29 @@
 
       // 날짜 선택
       function choiceDate(nowColumn) {
-        if (document.getElementsByClassName("choiceDay")[0]) {
-          // 기존에 선택한 날짜가 있으면
-          document
-            .getElementsByClassName("choiceDay")[0]
-            .classList.remove("choiceDay"); // 해당 날짜의 "choiceDay" class 제거
-        }
-        nowColumn.classList.add("choiceDay"); // 선택된 날짜에 "choiceDay" class 추가
-        // 선택된 날짜 가져오기
-        let selectedDate = new Date(
-          nowMonth.getFullYear(),
-          nowMonth.getMonth(),
-          parseInt(nowColumn.innerText)
-        );
-        document.getElementById("selectedMonth").innerText =
-          selectedDate.getMonth() + 1;
-        document.getElementById("selectedDate").innerText =
-          selectedDate.getDate();
-        console.log("선택한 날짜", selectedDate);
-      }
+  if (document.getElementsByClassName("choiceDay")[0]) {
+    // 기존에 선택한 날짜가 있으면
+    document
+      .getElementsByClassName("choiceDay")[0]
+      .classList.remove("choiceDay"); // 해당 날짜의 "choiceDay" class 제거
+  }
+  nowColumn.classList.add("choiceDay"); // 선택된 날짜에 "choiceDay" class 추가
+  // 선택된 날짜 가져오기
+  let selectedDate = new Date(
+    nowMonth.getFullYear(),
+    nowMonth.getMonth(),
+    parseInt(nowColumn.innerText)
+  );
+  document.getElementById("selectedMonth").innerText =
+    selectedDate.getMonth() + 1;
+  document.getElementById("selectedDate").innerText = selectedDate.getDate();
+  console.log("선택한 날짜", selectedDate);
+
+  // 목록 리셋
+  checklist = [];
+  var checkboxContainer = document.getElementById('checkboxContainer');
+  checkboxContainer.innerHTML = '';
+}
 
       // 이전달 버튼 클릭
       function prevCalendar() {
