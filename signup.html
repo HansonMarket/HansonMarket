@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      .logo {
+        margin: auto;
+        text-align: center;
+      }
+      .login {
+        font-size: 50px;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 100px;
+        margin-top: 100px;
+      }
+      .login-form {
+        display: block;
+      }
+      .login-id {
+        display: block;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom-color: darkgray;
+        width: 50%;
+        height: 4vh;
+        margin: auto;
+      }
+      .login-pwd {
+        display: block;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom-color: darkgray;
+        width: 50%;
+        height: 4vh;
+        margin: auto;
+        margin-top: 30px;
+      }
+      .login-pwd-check {
+        display: block;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom-color: darkgray;
+        width: 50%;
+        height: 4vh;
+        margin: auto;
+        margin-top: 30px;
+      }
+      .signup-button {
+        display: block;
+        margin: auto;
+        text-align: center;
+        width: 40%;
+        height: 4vh;
+        border: none;
+        background-color: white;
+        margin-top: 100px;
+      }
+      .signup-button:hover {
+        background-color: #006400;
+        color: white;
+      }
+      .menu {
+        background-color: #f2f2f2;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+
+      .menu-details ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .menu-details ul li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .menu-details ul li a {
+        color: #333;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 class="logo">한손마켓</h3>
+    <hr />
+    <div class="login">회원가입</div>
+    <div class="login-form">
+      <input class="login-id" id="idInput" placeholder="아이디" />
+      <input
+        class="login-pwd"
+        id="pwdInput"
+        type="password"
+        placeholder="비밀번호"
+      />
+      <input
+        class="login-pwd-check"
+        id="pwdCheckInput"
+        type="password"
+        placeholder="비밀번호 확인"
+      />
+    </div>
+    <button class="signup-button" onclick="validateForm()">회원가입</button>
+    <div class="menu">
+      <div class="menu-details">
+        <ul>
+          <li>
+            <a href="#"><img src="media/Wallet.png" width="40px" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="media/food.png" width="40px" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="media/Map.png" width="40px" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="media/community.png" width="40px" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="media/user.png" width="40px" /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      function validateForm() {
+        var id = document.getElementById("idInput").value;
+        var password = document.getElementById("pwdInput").value;
+        var passwordCheck = document.getElementById("pwdCheckInput").value;
+
+        // 아이디 유효성 검사
+        var idRegex = /^[a-zA-Z0-9]{6,15}$/;
+        if (!idRegex.test(id)) {
+          alert(
+            "아이디는 영어와 숫자를 포함한 6자리 이상, 15자리 이하의 조합이어야 합니다."
+          );
+          return;
+        }
+
+        // 비밀번호 유효성 검사
+        var passwordRegex =
+          /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,20}$/;
+        if (!passwordRegex.test(password)) {
+          alert(
+            "비밀번호는 영어와 숫자, 특수문자를 포함한 8자리 이상, 20자리 이하의 조합이어야 합니다."
+          );
+          return;
+        }
+
+        // 비밀번호 확인
+        if (password !== passwordCheck) {
+          alert("비밀번호가 일치하지 않습니다.");
+          return;
+        }
+
+        //임시로 localStorage에 저장해두고 login에서 확인
+        localStorage.setItem("id", id);
+        localStorage.setItem("password", password);
+        alert("회원가입이 완료되었습니다.");
+      }
+    </script>
+  </body>
+</html>
