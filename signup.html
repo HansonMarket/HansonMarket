@@ -110,28 +110,13 @@
         placeholder="비밀번호 확인"
       />
     </div>
-    <button class="signup-button" onclick="validateForm()">회원가입</button>
-    <div class="menu">
-      <div class="menu-details">
-        <ul>
-          <li>
-            <a href="#"><img src="media/Wallet.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/food.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/Map.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/community.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/user.png" width="40px" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <button
+      onClick="location.href='login.html'"
+      class="signup-button"
+      onclick="validateForm()"
+    >
+      회원가입
+    </button>
     <script>
       function validateForm() {
         var id = document.getElementById("idInput").value;
