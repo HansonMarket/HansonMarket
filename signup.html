@@ -110,13 +110,7 @@
         placeholder="비밀번호 확인"
       />
     </div>
-    <button
-      onClick="location.href='login.html'"
-      class="signup-button"
-      onclick="validateForm()"
-    >
-      회원가입
-    </button>
+    <button class="signup-button" onclick="validateForm()">회원가입</button>
     <script>
       function validateForm() {
         var id = document.getElementById("idInput").value;
@@ -152,6 +146,7 @@
         localStorage.setItem("id", id);
         localStorage.setItem("password", password);
         alert("회원가입이 완료되었습니다.");
+        location.href = "login.html";
       }
     </script>
   </body>
