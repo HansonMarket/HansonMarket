@@ -111,27 +111,6 @@
       />
     </div>
     <button class="signup-button" onclick="validateForm()">회원가입</button>
-    <div class="menu">
-      <div class="menu-details">
-        <ul>
-          <li>
-            <a href="#"><img src="media/Wallet.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/food.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/Map.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/community.png" width="40px" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="media/user.png" width="40px" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
     <script>
       function validateForm() {
         var id = document.getElementById("idInput").value;
@@ -167,6 +146,7 @@
         localStorage.setItem("id", id);
         localStorage.setItem("password", password);
         alert("회원가입이 완료되었습니다.");
+        location.href = "login.html";
       }
     </script>
   </body>
