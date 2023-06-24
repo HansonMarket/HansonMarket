@@ -257,7 +257,7 @@
                                 
                                     var content =  '<div class="infocontainer">' + 
                                                     '   <div class="img">' +            //이미지 클래스 
-                                                    '     <img src="infomarket.png">' +
+                                                    '     <img src="infomarket.png" height=30 width=30>' +
                                                     '   </div>' +
                                                     '       <div class="title" >' + 
                                                             mrktNm + '<hr>'+    //시장이름 
@@ -308,7 +308,7 @@
                                         
                                             var content =  '<div class="infocontainer">' + 
                                                             '   <div class="img">' +            //이미지 클래스 
-                                                            '     <img src="infomarket.png">' +
+                                                            '     <img src="infomarket.png" height=30 width=30>' +
                                                             '   </div>' +
                                                             '       <div class="title" >' + 
                                                                     mrktNm + '<hr>'+    //시장이름 
@@ -455,8 +455,8 @@
 
                             kakao.maps.event.addListener(
                                 marker,
-                                "mouseout".
-                                mouseOutListener(map, marker, infoWindow)
+                                "mouseout",
+                                mouseOutListener(infoWindow)
                             );
                             
                             } else {
@@ -485,24 +485,6 @@
                     });
                 }
 
-                function fetchAllData(searchKeyword) {
-                    var promises = [];
-
-                    for (var page = 1; page <= totalPages; page++) {
-                    promises.push(fetchData(page));
-                    }
-
-                    Promise.all(promises)
-                    .then((responses) => {
-                        responses.forEach((data) => {
-                        displayData(data, searchKeyword);
-                        });
-                    })
-                    .catch((error) => {
-                        console.error("Error fetching data:", error);
-                    });
-                }
-                
                 function performSearch() {
                     var searchInput = document.getElementById("search");
                     var searchKeyword = searchInput.value;
