@@ -1,197 +1,232 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>댓글달기</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 플레이스 스타일 웹 페이지</title>
     <style>
-      #form-commentInfo {
-        width: 100%;
-        text-align: center;
-      }
+        /* CSS 스타일링 */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        #form-commentInfo {
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #f5f5f5;
+            padding: 10px;
+            box-sizing: border-box;
+        }
 
-      #comment-count {
-        margin-bottom: 10px;
-      }
+        #comment-count {
+            margin-bottom: 10px;
+        }
 
-      #comment-input {
-        width: 50%;
-        height: 3.3em;
-      }
+        #comment-input {
+            width: 50%;
+            height: 3.3em;
+        }
 
-      #submit {
-        background-color: #006400;
-        border: none;
-        width: 5.5em;
-        height: 3.3em;
-        font-size: 15px;
-        font-weight: bold;
-        color: aliceblue;
-      }
+        #submit {
+            background-color: #006400;
+            border: none;
+            width: 5.5em;
+            height: 3.3em;
+            font-size: 15px;
+            font-weight: bold;
+            color: aliceblue;
+        }
 
-      #comments {
-        margin-top: 10px;
-      }
+        #comments {
+            margin-top: 10px;
+            margin-bottom: 70px;
+        }
 
-      .eachComment {
-        width: 50%;
-        margin: 10px;
-        padding: 0.5em;
-        border-bottom: 1px solid #c1bcba;
-      }
+        .eachComment {
+            width: 50%;
+            margin: 10px;
+            padding: 0.5em;
+            border-bottom: 1px solid #c1bcba;
+        }
 
-      .eachComment .name {
-        font-size: 1.5em;
-        font-weight: bold;
-        margin-bottom: 0.3em;
-        display: flex;
-        justify-content: space-between;
-      }
+        .eachComment .name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 0.3em;
+            display: flex;
+            justify-content: space-between;
+        }
 
-      .eachComment .inputValue {
-        font-size: 1.2em;
-        font-style: italic;
-      }
+        .eachComment .inputValue {
+            font-size: 1.2em;
+            font-style: italic;
+        }
 
-      .eachComment .time {
-        font-size: 0.7em;
-        color: #c1bcba;
-        font-style: oblique;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-      }
+        .eachComment .time {
+            font-size: 0.7em;
+            color: #c1bcba;
+            font-style: oblique;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
 
-      .eachComment .deleteComment {
-        background-color: lightgray;
-        border: none;
-        /* color: aliceblue; */
-      }
+        .eachComment .deleteComment {
+            background-color: lightgray;
+            border: none;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .place-info {
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .place-name {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+
+        .place-table {
+            margin-top: 60px;
+            text-align: left;
+        }
+
+        .place-table td:first-child {
+            width: 120px;
+        }
+
+        .place-info span {
+            color: #888;
+        }
+
+        .place-rating {
+            color: #f00;
+            font-weight: bold;
+            margin-top: 40px;
+        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="index.css" /> -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-WD9KD6R5lODoJm6LkJ0Hd5N+j35jyysS5ujhtrv2KZp7fwwkYWp9aaIj9ERuoLh1"
+      crossorigin="anonymous"
     />
-  </head>
-  <body>
-    <div id="form-commentInfo">
-      <div id="comment-count">댓글 <span id="count">0</span></div>
-      <input id="comment-input" placeholder="댓글을 입력해 주세요." />
-      <button id="submit">등록</button>
+</head>
+<body>
+    <div class="container">
+        <div class="place-info">
+            <span>장소 정보</span>
+        </div>
+        <div class="place-name">염매 시장</div>
+        <table class="place-table">
+            <tr>
+                <td>주소</td>
+                <td>대구광역시 중구 종루 11-9</td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td>053-252-3831</td>
+            </tr>
+            <tr>
+                <td>주차장</td>
+                <td>미보유</td>
+            </tr>
+            <tr>
+                <td>공중화장실</td>
+                <td>보유</td>
+            </tr>
+            <tr>
+                <td>취급 품목</td>
+                <td>건어물,농산물,육가공</td>
+            </tr>
+            <tr>
+                <td>운영시간</td>
+                <td>09:00 - 18:00</td>
+            </tr>
+        </table>
+        <div id="comments"></div>
     </div>
-    <div id="comments"></div>
+
+    <div id="form-commentInfo">
+        <div id="comment-count">댓글 <span id="count">0</span></div>
+        <input id="comment-input" placeholder="댓글을 입력해 주세요." />
+        <button id="submit">등록</button>
+    </div>
+
     <script>
-      //1.입력받으면 입력값 초기화
-      //2. 입력값 댓글로들어가기
-      //3. 댓글 삭제, 수정기능
-      //4. 좋아요 투표기능
-      //5. 타임스템프기능
-      //6. 무작위 아이디
-      //7. 댓글 삭제기능
-      //8. 댓글 수정기능
+        // JavaScript 코드
+        const commentInput = document.getElementById("comment-input");
+        const submitButton = document.getElementById("submit");
+        const commentsContainer = document.getElementById("comments");
+        let commentCount = 0;
 
-      const inputBar = document.querySelector("#comment-input");
-      const rootDiv = document.querySelector("#comments");
-      const btn = document.querySelector("#submit");
-      const mainCommentCount = document.querySelector("#count"); //맨위 댓글 숫자 세는거.
+        submitButton.addEventListener("click", () => {
+            const commentText = commentInput.value.trim();
+            if (commentText !== "") {
+                const commentElement = createCommentElement(commentText);
+                commentsContainer.insertBefore(commentElement, commentsContainer.firstChild);
+                commentCount++;
+                document.getElementById("count").textContent = commentCount;
+                commentInput.value = "";
+                window.scrollTo(0,document.body.scrollHeight);
+            }
+        });
 
-      //타임스템프 만들기
-      function generateTime() {
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = date.getMonth();
-        const wDate = date.getDate();
-        const hour = date.getHours();
-        const min = date.getMinutes();
-        const sec = date.getSeconds();
+        function createCommentElement(text) {
+            const commentElement = document.createElement("div");
+            commentElement.classList.add("eachComment");
 
-        const time =
-          year + "-" + month + "-" + wDate + " " + hour + ":" + min + ":" + sec;
-        return time;
-      }
+            const nameElement = document.createElement("div");
+            nameElement.classList.add("name");
+            nameElement.textContent = "익명";
 
-      //유저이름 발생기
-      //개인정보를 위해 처음 4자리만 보여주고 그 이외에는 *처리
-      function generateUserName() {
-        var makeUsername = "";
-        var id = localStorage.getItem("id");
+            const inputValueElement = document.createElement("div");
+            inputValueElement.classList.add("inputValue");
+            inputValueElement.textContent = text;
 
-        if (id !== null) {
-          var displayedUsername = id.substring(0, 4); // 처음 4자리만 가져오기
-          var hiddenLength = id.length - 4; // '*'로 처리할 나머지 자리 수
+            const timeElement = document.createElement("div");
+            timeElement.classList.add("time");
+            const now = new Date();
+            timeElement.textContent = now.toLocaleString();
 
-          makeUsername = displayedUsername + "*".repeat(hiddenLength); // 나머지 자리 '*'로 처리
-          console.log(makeUsername);
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("deleteComment");
+            deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
+            deleteButton.addEventListener("click", () => {
+                commentsContainer.removeChild(commentElement);
+                commentCount--;
+                document.getElementById("count").textContent = commentCount;
+            });
+
+            commentElement.appendChild(nameElement);
+            commentElement.appendChild(inputValueElement);
+            commentElement.appendChild(timeElement);
+            commentElement.appendChild(deleteButton);
+
+            return commentElement;
         }
-
-        return makeUsername;
-      }
-
-      function deleteComments(event) {
-        const btn = event.target;
-        const list = btn.parentNode.parentNode; //commentList
-        rootDiv.removeChild(list);
-        //메인댓글 카운트 줄이기.
-        if (mainCommentCount.innerHTML <= "0") {
-          mainCommentCount.innerHTML = 0;
-        } else {
-          mainCommentCount.innerHTML--;
-        }
-      }
-
-      //댓글보여주기
-      function showComment(comment) {
-        const userName = document.createElement("div");
-        const inputValue = document.createElement("span");
-        const showTime = document.createElement("div");
-        const voteDiv = document.createElement("div");
-        const countSpan = document.createElement("span");
-        const commentList = document.createElement("div"); //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
-        //삭제버튼 만들기
-        const delBtn = document.createElement("button");
-        delBtn.className = "deleteComment";
-        delBtn.innerHTML = "삭제";
-        commentList.className = "eachComment";
-        userName.className = "name";
-        inputValue.className = "inputValue";
-        showTime.className = "time";
-        voteDiv.className = "voteDiv";
-        //유저네임가져오기
-        userName.innerHTML = generateUserName();
-        userName.appendChild(delBtn);
-        //입력값 넘기기
-        inputValue.innerText = comment;
-        //타임스템프찍기
-        showTime.innerHTML = generateTime();
-        countSpan.innerHTML = 0;
-
-        //댓글뿌려주기
-        commentList.appendChild(userName);
-        commentList.appendChild(inputValue);
-        commentList.appendChild(showTime);
-        // commentList.appendChild(voteDiv);
-        rootDiv.prepend(commentList);
-
-        delBtn.addEventListener("click", deleteComments);
-        console.dir(rootDiv);
-      }
-
-      //버튼만들기+입력값 전달
-      function pressBtn() {
-        const currentVal = inputBar.value;
-
-        if (!currentVal.length) {
-          alert("댓글을 입력해주세요!!");
-        } else {
-          showComment(currentVal);
-          mainCommentCount.innerHTML++;
-          inputBar.value = "";
-        }
-      }
-
-      btn.onclick = pressBtn;
     </script>
-  </body>
+</body>
 </html>
