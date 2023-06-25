@@ -72,7 +72,7 @@
     </head>
     <body>
         <div class = "top" style="background-color: white;" >
-            <img src="Arrow 1.png">
+            <a href="#" onclick="history.back();"><img src="Arrow 1.png""></a>
             <span style="font-weight:1000;font-size:35px;margin-left:150;">지역 특산물</span>
         </div>
         <div class="box-template" style="padding-top:70px;">
@@ -384,20 +384,17 @@
               <ul>
                 <li>
                   <a href="./지역특산물/지역특산물.html"
-                    ><img src="media/food.png" width="40px"
+                    ><img src="food.png" width="40px"
                   /></a>
                 </li>
                 <li>
                   <a href="./prac2.html"
-                    ><img src="media/location.png" width="40px"
+                    ><img src="location.png" width="40px"
                   /></a>
                 </li>
                 <li>
-                  <a href="/"><img src="media/community.png" width="40px" /></a>
-                </li>
-                <li>
                   <a href="./mypage.html"
-                    ><img src="media/user.png" width="40px"
+                    ><img src="user.png" width="40px"
                   /></a>
                 </li>
               </ul>
@@ -407,7 +404,8 @@
         <script>
             changeValue=(target) => {
                 value = (target.value);
-                html = location.href='지역특산물 세부내용.html'
+                if (value=="1.1")
+                    html = location.href='지역특산물 세부내용.html'
             }
         </script>
 
